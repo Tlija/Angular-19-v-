@@ -1,46 +1,66 @@
-<div class="container">
-  <div class="title">
-    <div class="title">
-      Products
-    </div>
-    <div class="wrapper">
-      @if (productsResource.status() === 4) {
-        @for (product of productsResource.value(); track product.id; ) {
-          <div class="products">
-            <div class="image">
-              <img [ngSrc]="product.image" width="200" height="200" alt="Product image"/>
-            </div>
 
-            <div class="title">
-              <div>{{ product.title }}"</div>
-            </div>
 
-            <div class="title">
-              <div>{{ product.categories }}"</div>
-
-            </div>
-
-            <div class="title">
-              <div>{{ product.price }}"</div>
-
-            </div>
-
-          </div>
-
-        }
-      } @else if (productsResource.status() === 2) {
-        <div>
-          Loading ...
-        </div>
-
-      } @else if (productsResource.status() === 1) {
-        <div>
-          Some error has occured
-        </div>
-
-      }
-
-    </div>
-
-  </div>
+<div>
+  <h2>{{ selectedUser().name }}</h2>
+  <p>Nombre d'éléments par page : {{ itemsPerPage() }}</p>
+  <button (click)="updateItemsPerPage(itemsPerPage() + 5)">
+    Augmenter
+  </button>
+  <button (click)="changeUser()">Changer User</button>
 </div>
+
+
+<!--@defer (on timer(15s); hydrate on interaction) {-->
+<!--  <div class="container">-->
+<!--    <div class="title">-->
+<!--      <div class="title">-->
+<!--        Products-->
+<!--      </div>-->
+<!--      <div class="wrapper">-->
+<!--        @if (productsResource.status() === 4) {-->
+<!--          @for (product of productsResource.value(); track product.id; ) {-->
+<!--            <div class="products">-->
+<!--              <div class="image">-->
+<!--                <img [ngSrc]="product.image" width="200" height="200" alt="Product image"/>-->
+<!--              </div>-->
+
+<!--              <div class="title">-->
+<!--                <div>{{ product.title }}"</div>-->
+<!--              </div>-->
+
+<!--              <div class="title">-->
+<!--                <div>{{ product.categories }}"</div>-->
+
+<!--              </div>-->
+
+<!--              <div class="title">-->
+<!--                <div>{{ product.price }}"</div>-->
+
+<!--              </div>-->
+
+<!--            </div>-->
+
+<!--          }-->
+<!--        } @else if (productsResource.status() === 2) {-->
+<!--          <div>-->
+<!--            Loading ...-->
+<!--          </div>-->
+
+<!--        } @else if (productsResource.status() === 1) {-->
+<!--          <div>-->
+<!--            Some error has occured-->
+<!--          </div>-->
+
+<!--        }-->
+
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+
+<!--} @placeholder {-->
+<!--  <p>-->
+<!--    changement de la liste des utilisateur ....-->
+<!--  </p>-->
+<!--}-->
+
